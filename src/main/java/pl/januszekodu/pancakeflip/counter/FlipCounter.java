@@ -1,16 +1,9 @@
-package pl.januszekodu.pancakeflip;
+package pl.januszekodu.pancakeflip.counter;
 
 import java.util.OptionalInt;
 
 import static java.lang.String.valueOf;
 import static java.util.stream.IntStream.range;
-import static pl.januszekodu.pancakeflip.PancakeRowHelper.findNextBlank;
-import static pl.januszekodu.pancakeflip.PancakeRowHelper.leftSideIsBlank;
-import static pl.januszekodu.pancakeflip.PancakeRowHelper.rangeIsBlank;
-import static pl.januszekodu.pancakeflip.PancakeRowHelper.rightSideIsBlank;
-import static pl.januszekodu.pancakeflip.PancakeRowHelper.rowRange;
-import static pl.januszekodu.pancakeflip.PancakeSide.BLANK;
-import static pl.januszekodu.pancakeflip.PancakeSide.HAPPY;
 
 class FlipCounter {
 
@@ -50,12 +43,12 @@ class FlipCounter {
   }
 
   private OptionalInt indexOfBlankGroup(PancakeRow row) {
-    return rowRange(row).filter(i -> isIndexOfBlankGroup(row, i)).findFirst();
+    return PancakeRowHelper.rowRange(row).filter(i -> isIndexOfBlankGroup(row, i)).findFirst();
   }
 
   private boolean isIndexOfBlankGroup(PancakeRow row, int index) {
     return index + flipperSize <= row.getSize()
-        && rangeIsBlank(row, index, index + flipperSize);
+        && PancakeRowHelper.rangeIsBlank(row, index, index + flipperSize);
   }
 
   private OptionalInt indexOfHappyGroup(PancakeRow row) {
@@ -71,16 +64,16 @@ class FlipCounter {
 
   //++-
   private boolean isIndexOfLeftSidedHappyGroup(PancakeRow row, int index) {
-    return HAPPY.equals(row.getSideAt(index))
-        && findNextBlank(row, index) - index == flipperSize - 1
-        && rightSideIsBlank(row, findNextBlank(row, index));
+    return PancakeSide.HAPPY.equals(row.getSideAt(index))
+        && PancakeRowHelper.findNextBlank(row, index) - index == flipperSize - 1
+        && PancakeRowHelper.rightSideIsBlank(row, PancakeRowHelper.findNextBlank(row, index));
   }
 
   //-++
   private boolean isIndexOfRightSidedHappyGroup(PancakeRow row, int index) {
-    return BLANK.equals(row.getSideAt(index))
-        && findNextBlank(row, index) - index == flipperSize
-        && leftSideIsBlank(row, index);
+    return PancakeSide.BLANK.equals(row.getSideAt(index))
+        && PancakeRowHelper.findNextBlank(row, index) - index == flipperSize
+        && PancakeRowHelper.leftSideIsBlank(row, index);
   }
 
 }

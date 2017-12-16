@@ -1,4 +1,4 @@
-package pl.januszekodu.pancakeflip;
+package pl.januszekodu.pancakeflip.counter;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package pl.januszekodu.pancakeflip;
+package pl.januszekodu.pancakeflip.counter;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 
 import static junitparams.JUnitParamsRunner.$;
 import static org.assertj.core.api.Assertions.assertThat;
-import static pl.januszekodu.pancakeflip.PancakeSide.BLANK;
-import static pl.januszekodu.pancakeflip.PancakeSide.HAPPY;
+import static pl.januszekodu.pancakeflip.counter.PancakeSide.BLANK;
+import static pl.januszekodu.pancakeflip.counter.PancakeSide.HAPPY;
 
 @RunWith(JUnitParamsRunner.class)
 public class PancakeFlipTest {
