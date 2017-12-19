@@ -1,12 +1,14 @@
 package pl.januszekodu.pancakeflip.counter;
 
+import java.util.Arrays;
+
 import static java.util.stream.IntStream.range;
 
-class PancakeRow {
+public class PancakeRow {
 
   private final PancakeSide[] sides;
 
-  static PancakeRow of(PancakeSide[] sides) {
+  public static PancakeRow of(PancakeSide[] sides) {
     return new PancakeRow(sides);
   }
 
@@ -36,4 +38,20 @@ class PancakeRow {
       return getSideAt(i);
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PancakeRow that = (PancakeRow) o;
+    return Arrays.equals(sides, that.sides);
+  }
+
+  @Override
+  public int hashCode() {
+    return Arrays.hashCode(sides);
+  }
 }

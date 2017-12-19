@@ -5,7 +5,7 @@ import java.util.OptionalInt;
 import static java.lang.String.valueOf;
 import static java.util.stream.IntStream.range;
 
-class FlipCounter {
+public class FlipCounter {
 
   private static final String IMPOSSIBLE = "IMPOSSIBLE";
 
@@ -15,7 +15,7 @@ class FlipCounter {
     this.flipperSize = flipperSize;
   }
 
-  String count(PancakeRow row) {
+  public String count(PancakeRow row) {
     return count(row, 0);
   }
 
