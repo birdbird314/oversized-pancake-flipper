@@ -7,7 +7,4 @@ public enum PancakeSide {
     return HAPPY.equals(side) ? BLANK : HAPPY;
   }
 
-  public static PancakeSide fromString(String string) {
-    return "-".equals(string) ? BLANK : HAPPY;
-  }
 }

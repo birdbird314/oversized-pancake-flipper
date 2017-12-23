@@ -49,8 +49,12 @@ public class CaseSuiteSolver {
   private PancakeRow extractPancakeRow(String singleCaseLine) {
     return PancakeRow.of(
         stream(extractPancakeRowString(singleCaseLine).split(""))
-            .map(PancakeSide::fromString)
+            .map(CaseSuiteSolver::pancakeSideFromString)
             .toArray(PancakeSide[]::new)
     );
+  }
+
+  private static PancakeSide pancakeSideFromString(String string) {
+    return "-".equals(string) ? PancakeSide.BLANK : PancakeSide.HAPPY;
   }
 }
