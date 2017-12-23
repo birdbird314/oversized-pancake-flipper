@@ -4,6 +4,8 @@ import java.util.OptionalInt;
 
 import static java.lang.String.valueOf;
 import static java.util.stream.IntStream.range;
+import static pl.januszekodu.pancakeflip.counter.PancakeRowHelper.rangeIsBlank;
+import static pl.januszekodu.pancakeflip.counter.PancakeRowHelper.rowRange;
 
 public class FlipCounter {
 
@@ -43,12 +45,12 @@ public class FlipCounter {
   }
 
   private OptionalInt indexOfBlankGroup(PancakeRow row) {
-    return PancakeRowHelper.rowRange(row).filter(i -> isIndexOfBlankGroup(row, i)).findFirst();
+    return rowRange(row).filter(i -> isIndexOfBlankGroup(row, i)).findFirst();
   }
 
   private boolean isIndexOfBlankGroup(PancakeRow row, int index) {
     return index + flipperSize <= row.getSize()
-        && PancakeRowHelper.rangeIsBlank(row, index, index + flipperSize);
+        && rangeIsBlank(row, index, index + flipperSize);
   }
 
   private OptionalInt indexOfHappyGroup(PancakeRow row) {
